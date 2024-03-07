@@ -1,0 +1,19 @@
+services:
+- name: service-0
+  addr: ":8080"
+  handler:
+    type: http
+    auth:
+      username: vexsx
+      password: vexsx
+  listener:
+    type: tcp
+- name: service-1
+  addr: ":1080"
+  handler:
+    type: socks5
+    auth:
+      username: vexsx
+      password: vexsx
+  listener:
+    type: tcp
