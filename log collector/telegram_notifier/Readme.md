@@ -14,3 +14,8 @@
 ## discription 
 
 This Bash script sends a Telegram notification when a user logs in via SSH. It retrieves information such as the user's IP address, timestamp, hostname, SSH port, operating system, current directory, and last login details, and then constructs a message to send via Telegram. The script utilizes functions to extract and format the necessary data before sending the notification.
+
+
+# importent 
+
+**add your bot token and chat-id to script**
