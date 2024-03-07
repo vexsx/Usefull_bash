@@ -1,4 +1,4 @@
-# open vpn auto install
+# 🐧 open vpn auto install
 
 
 ```bash

@@ -1,3 +1,5 @@
+
+# ⚠️ Description 
 This script is a reporting tool that analyzes user activity from a specified log file (default is /var/log/wtmp) and generates a report showing active users with details on their login times, number of logins, and total usage hours.
 
 Here is a brief overview of what the script does:

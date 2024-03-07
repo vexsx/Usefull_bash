@@ -1,4 +1,4 @@
-# Telegram notifier
+# Telegram notifier Ⓜ️
 
 
 ## 1-Add script (e.g., `telegram_notify.sh`) in a location like `/usr/local/bin/`
@@ -10,12 +10,13 @@
    - Add the following line at the end of the file: `ForceCommand /usr/local/bin/telegram_notify.sh`.
    - Save the file and restart the SSH service by running `sudo systemctl restart sshd`.
 
+# importent 
+
+**add your bot token and chat-id to script**
+
 
 ## discription 
 
 This Bash script sends a Telegram notification when a user logs in via SSH. It retrieves information such as the user's IP address, timestamp, hostname, SSH port, operating system, current directory, and last login details, and then constructs a message to send via Telegram. The script utilizes functions to extract and format the necessary data before sending the notification.
 
 
-# importent 
-
-**add your bot token and chat-id to script**
