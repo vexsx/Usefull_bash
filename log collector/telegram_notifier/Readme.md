@@ -1,8 +1,9 @@
+# Telegram notifier
 
 
-Add script (e.g., `telegram_notify.sh`) in a location like `/usr/local/bin/`
+## 1-Add script (e.g., `telegram_notify.sh`) in a location like `/usr/local/bin/`
 
-Run `chmod +x /usr/local/bin/telegram_notify.sh` to make the script executable.
+### 2-Run `chmod +x /usr/local/bin/telegram_notify.sh` to make the script executable.
 
 **Configure SSH to run the script:**
    - Edit the SSH daemon configuration file by running `sudo nano /etc/ssh/sshd_config`.
