@@ -43,8 +43,8 @@ last -a $USER | head -n 1 | awk '{print $3, $4, $5, $6}'
 # Function to send message to Telegram
 send_telegram_message() {
   local message=$1
-  local token="6018463726:AAFX0ZtotTYM3LRVU5zWeNMMt8ZypAIXvsM"
-  local chat_id="1934549016"
+  local token=""
+  local chat_id=""
   local url="https://api.telegram.org/bot${token}/sendMessage"
 
   curl -s -X POST "${url}" -d chat_id="${chat_id}" -d text="${message}" >/dev/null 2>&1 &
