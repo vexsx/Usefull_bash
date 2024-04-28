@@ -1,5 +1,5 @@
 # Hosted zone
-domain: example.com
+domain: vexsx.local
 
 
 # Default ports which will be used with cluster/service specific offset
@@ -18,7 +18,14 @@ haproxy_sentinel_ssl_port: 16379
 instances:
   testcluster1:
     redisdb-mytest:
-      srv1: 10.0.7.72
-      srv2: 10.0.7.142
-      srv3: 10.0.7.202
+      srv1: 192.168.78.158
+      srv2: 192.168.78.160
+      srv3: 192.168.78.158
 
+
+services:
+  testcluster1:
+    redisdb-mytest:
+      default:
+        port_offset: 0
+        maxmemory: 400mb
