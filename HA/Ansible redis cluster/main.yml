@@ -1,6 +1,6 @@
 ---
 - name: Install Redis HA cluster
-  hosts: redisha
+  hosts: inventory_redisha
   remote_user: ubuntu
   serial: 1
   become: yes
