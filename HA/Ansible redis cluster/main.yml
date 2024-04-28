@@ -1,7 +1,7 @@
 ---
 - name: Install Redis HA cluster
-  hosts: inventory_redisha
-  remote_user: ubuntu
+  hosts: redisha
+  remote_user: vexsx
   serial: 1
   become: yes
   become_method: sudo

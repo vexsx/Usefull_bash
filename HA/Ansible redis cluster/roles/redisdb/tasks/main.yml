@@ -8,6 +8,25 @@
 #
 
 # Setup third-party tools for debugging purpose
+- name: Install required packages for Docker repository
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+    state: present
+
+- name: Add Docker GPG key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker repository
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable
+    state: present
+
 - name: Install redis-cli and docker
   apt:
     update_cache: yes
@@ -79,6 +98,12 @@
     value=65535
     state=present
     ignoreerrors=yes
+
+#login docker
+- name: Log into DockerHub
+  docker_login:
+    username: "{{ docker_username }}"
+    password: "{{ docker_password }}"
 
 # Setup Redis
 - name: Pull docker images

@@ -4,3 +4,7 @@ redis_version: 7.2.4-alpine
 redis_exporter_version: 20191114
 redis_commander_version: 20191212
 haproxy_exporter_version: 20190408
+
+#docekr
+docker_username: vexsx
+docker_password: "p78268060"
