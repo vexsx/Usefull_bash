@@ -114,22 +114,40 @@
   register: docker_pull
   changed_when: '"Downloaded newer image" in docker_pull.stdout'
 
+
+- include_vars: ./config.yml
+- debug:
+    var: services
+- debug:
+    var: cluster
+- debug:
+    var: subcluster
+
+#  refresh facts
+- name: Refresh Facts
+  setup:  
+
 # Setup list of services per subcluster
-- set_fact: servicelist={{services[cluster][subcluster]}}
-- set_fact:
+- name: Set service list from default
+  set_fact:
+    servicelist: "{{ services['cluster'][subcluster]}}"
+
+- name: Set service list for specific database
+  set_fact:
     servicelist:
-      - key: "{{db_var}}"
-        value: "{{services[cluster][subcluster][db_var]}}"
+      - key: "{{ db_var }}"
+        value: "{{ services[cluster][subcluster][db_var] }}"
   when: db_var is defined
 
-- set_fact: servicelist={{servicelist|items2dict}}
+- name: Convert servicelist to dictionary
+  set_fact: 
+    servicelist: "{{ servicelist | items2dict }}"
   when: db_var is defined
 
 - name: Iterate over services inside the subcluster
   include_tasks: service.yml
-  with_dict:
-    - "{{servicelist}}"
+  loop: "{{ servicelist }}"
   loop_control:
     loop_var: service_item
   vars:
-    service: "{{service_item.key}}"
+    service: "{{ service_item.key }}"

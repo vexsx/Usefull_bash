@@ -27,5 +27,5 @@ services:
   testcluster1:
     redisdb-mytest:
       default:
-        port_offset: 0
-        maxmemory: 400mb
+        port_offset: "0"
+        maxmemory: "400mb"
