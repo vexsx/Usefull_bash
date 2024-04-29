@@ -1,0 +1,4 @@
+---
+- include: setup_redis.yml
+- include: setup_sentinel.yml
+- include: setup_haproxy.yml

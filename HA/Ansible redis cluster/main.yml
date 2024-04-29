@@ -7,5 +7,4 @@
   become_method: sudo
 
   roles:
-    - redisdb
-    - redisdb-misc
+    - redis_cluster

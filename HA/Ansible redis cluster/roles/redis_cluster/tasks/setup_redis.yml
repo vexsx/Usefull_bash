@@ -1,0 +1,23 @@
+---
+- name: Install Redis
+  apt:
+    name: redis-server
+    state: present
+  become: true
+
+- name: Configure Redis Instances
+  template:
+    src: redis.conf.j2
+    dest: "/etc/redis/redis{{ item }}.conf"
+  with_items: "{{ redis_ports }}"
+  notify:
+    - restart redis
+
+# - name: Ensure Redis is running
+#   systemd:
+#     name: "/etc/systemd/system/redis@{{ item }}.service"
+#     state: started
+#     enabled: yes
+#     daemon_reload: yes
+#   with_items: "{{ redis_ports }}"
+#   become: true

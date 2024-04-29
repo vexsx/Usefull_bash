@@ -1,0 +1,5 @@
+port {{ sentinel_port }}
+sentinel monitor mymaster {{ redis_nodes[0] }} {{ redis_ports[0] }} 2
+sentinel down-after-milliseconds mymaster 5000
+sentinel failover-timeout mymaster 60000
+sentinel parallel-syncs mymaster 1
