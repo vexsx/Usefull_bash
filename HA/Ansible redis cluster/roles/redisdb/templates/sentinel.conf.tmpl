@@ -1,0 +1,8 @@
+dir "/data"
+port {{sentinel_port + 0 }}
+requirepass testpass1
+sentinel deny-scripts-reconfig yes
+sentinel monitor default {{instances[cluster][subcluster]['srv1']}} {{redis_port + 0 }} 2
+sentinel down-after-milliseconds default 5000
+sentinel parallel-syncs default 2
+sentinel auth-pass default testpass1
